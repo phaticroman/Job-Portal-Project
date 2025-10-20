@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar</title>
+  
+  <!-- Link to Google Fonts for Roboto font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* General page styling to remove any default white background */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000; /* Entire background of the page is black */
+      color: #fff; /* Text color is white for contrast */
+    }
+
+    /* Navbar Styling */
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #000; /* Black background for navbar */
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: #fff; /* White text for links */
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-weight: 500; /* Medium weight for better readability */
+    }
+
+    li a:hover:not(.active) {
+      background-color: #FF4C4C; /* Red background on hover */
+    }
+
+    .active {
+      background-color: #FF1C1C; /* Darker red for active link */
+    }
+
+    /* Remove white background from any default block elements */
+    .content {
+      background-color: #000; /* Ensure the body content is black */
+    }
+  </style>
+</head>
+<body>
+
+  {% include 'navbar.html' %}
+
+  <div class="content">
+    {% block body %}
+    <!-- Your page content will go here -->
+    {% endblock body %}
+  </div>
+
+</body>
+</html>

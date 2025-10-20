@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff4c4c, #ff5b5b); /* Red gradient background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff; /* White text for better contrast */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        
+        .container {
+            background-color: #ffffff; /* Solid white background for form */
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 500px;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #ff4c4c; /* Red color for heading */
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+            font-size: 1.1em;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input:focus {
+            border-color: #ff4c4c; /* Red focus border */
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 76, 76, 0.4);
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4c4c; /* Red button */
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        button:hover {
+            background-color: #e64545; /* Darker red on hover */
+            transform: scale(1.05);
+        }
+        
+        .link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1em;
+            color: #ff4c4c; /* Red for the link */
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+        
+        .error {
+            color: red;
+            font-size: 0.8em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login Form</h2>
+        <form action="" id="signinForm" method="POST">
+            {% csrf_token %}
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Log in</button>
+            
+            <a href="{% url 'registerPage' %}" class="link">Create an Account</a>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signinForm').addEventListener('submit', function(event) {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Example form validation logic (can be expanded as needed)
+            if (!username || !password) {
+                event.preventDefault();
+                alert('Please fill out all fields.');
+            }
+        });
+    </script>
+</body>
+</html>
